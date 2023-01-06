@@ -1,5 +1,16 @@
 <template>
-  <TheHeader v-show="showHeader"/>
+  <TheHeader v-if="showHeader"/>
+
+  <div v-show="showName">
+    Nome : {{ firstName }} <br>
+    Sobrenome: {{ lastName }}
+
+  </div>
+
+  <div v-if="accessLevel === 'admin'">Admin</div>
+  <div v-else-if="accessLevel === 'marketing'">Marketing</div>
+  <div v-else>User</div>
+
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
@@ -16,7 +27,11 @@ export default {
   },
   data(){
      return {
-       showHeader : true,
+       showHeader : false,
+       firstName: 'Jasiel',
+       lastName: 'Serra',
+       showName: false,
+       accessLevel: ''
      }
   }
 }
