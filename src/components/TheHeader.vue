@@ -6,7 +6,8 @@
 
 <script>
 export default {
-  name: "TheHeader.vue"
+  name: 'The-Header',
+
 }
 </script>
 
