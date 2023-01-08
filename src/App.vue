@@ -47,6 +47,20 @@
         {{index}} - {{ obj.title }}
 
   </div>
+  <div>
+     <button @click.once="onClick">
+          Enviar
+     </button>
+     <p @mouseover="onMouseOver"
+     @mouseout="onMouseOut"> Mouver Hover</p><br><br>
+    <form action="https://www.google.com" @submit.prevent="onSubmit">
+      <input type="text" @keyup="onKeyUp">
+
+        <button type="submit"> Enviar </button>
+    </form>
+
+
+  </div>
 
   </div>
 
@@ -58,6 +72,23 @@ export default {
   name: 'App',
   components: {
 
+  },
+  methods:{
+    onClick($evt){
+      console.log("Click!!", $evt);
+    },
+    onMouseOver($evt){
+      console.log("Moving Mouse Cursor", $evt);
+    },
+    onMouseOut($evt){
+      console.log("Mouse Out!", $evt);
+    },
+    onSubmit(){
+      console.log('Sumit Form');
+    },
+    onKeyUp($evt){
+      console.log('onKeyUp', $evt);
+    }
   },
   data(){
      return {
