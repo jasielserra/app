@@ -1,8 +1,38 @@
 <template>
-
   <div>
+    One-way data binding <br>
+    Two-way data binding <br>
+    v-model -> formulários
+  </div>
+  <br>
+  <br>
+  <div>
+      <label>Nome</label><br>
+      <input v-model="name" type="text">
+      <br>
+        {{ name }}
       <h1 :class="{ 'title': true, 'title-home': isHome }">Curso VUE 3</h1>
+      <label>Sports</label><br>
+      <select v-model="sports">
+        <option value="">Escolha</option>
+        <option value="futebol">Futebol</option>
+        <option value="skate">Skate</option>
+        <option value="Tenis">Tenis</option>
+      </select>
+              <br>
+              {{ sports }}
+    <div>
+      <label>Cores que você mais gosta</label><br>
+      <input type="checkbox" value="Yellow" v-model="colors"> Yellow
+      <input type="checkbox" value="Red" v-model="colors"> Red
+      <input type="checkbox" value="Blue" v-model="colors"> Blue
+      <input type="checkbox" value="Green" v-model="colors"> Green
 
+      <br>
+      <br>
+            {{ colors }}
+
+    </div>
   <p :class="pClass">
       Lorem ipsum color sit amet, consectetur adpitgoinh
   </p>
@@ -31,6 +61,11 @@ export default {
   },
   data(){
      return {
+       colors: ['Yellow','Red','Blue','Green'],
+       contract: false,
+       newletter: 'Não',
+       name : 'Jasiel',
+       sports: 'futebol',
        isHome: true,
        classVar: 'title',
        styleClass: {'color': 'aqua', 'backgroundColor':'black', 'font-size': '20px'},
