@@ -1,7 +1,15 @@
 <template>
 
   <div>
+      <h1 :class="{ 'title': true, 'title-home': isHome }">Curso VUE 3</h1>
 
+  <p :class="pClass">
+      Lorem ipsum color sit amet, consectetur adpitgoinh
+  </p>
+
+  <p :style="styleClass">
+      Esquemas de Cores não deveria Lorem ipsum color sit amet, consectetur adpitgoinh
+  </p>
 
   <div class="todos-item" v-for="(obj, index) in todos" :key="obj.id">
       <img v-if="obj.imgSrc" :src="obj.imgSrc">
@@ -23,6 +31,10 @@ export default {
   },
   data(){
      return {
+       isHome: true,
+       classVar: 'title',
+       styleClass: {'color': 'aqua', 'backgroundColor':'black', 'font-size': '20px'},
+       pClass: ['text', 'text-home'],
        imgAlt:'Foto do meu Avatar',
        todos : [
   {
@@ -66,6 +78,17 @@ export default {
 </script>
 
 <style>
+
+.title {
+    font-size: 20px;
+    color: blue;
+}
+
+.title-home {
+  font-size: 40px;
+  color: greenyellow;
+}
+
 .todos-item{
     background: #000;
     margin: 0 0 5px 0;
