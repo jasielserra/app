@@ -2,7 +2,9 @@
   <div>
     One-way data binding <br>
     Two-way data binding <br>
-    v-model -> formulários
+    v-model -> formulários<br>
+    <button @click="click">Click-me</button>
+    <p> {{  fullName }}</p>
   </div>
   <br>
   <br>
@@ -40,13 +42,32 @@
   <p :style="styleClass">
       Esquemas de Cores não deveria Lorem ipsum color sit amet, consectetur adpitgoinh
   </p>
-
-  <div class="todos-item" v-for="(obj, index) in todos" :key="obj.id">
-      <img v-if="obj.imgSrc" :src="obj.imgSrc">
+    <h2>Todos em Aberto</h2>
+  <div class="todos-item" v-for="(obj, index) in uncompletedTodos" :key="obj.id">
+      <!-- <img v-if="obj.imgSrc" :src="obj.imgSrc"> -->
 
         {{index}} - {{ obj.title }}
 
   </div>
+    <br><br><br>
+    <h2>Todos Completadas</h2>
+  <div class="todos-item" v-for="(obj, index) in completedTodos" :key="obj.id">
+      <!-- <img v-if="obj.imgSrc" :src="obj.imgSrc"> -->
+
+        {{index}} - {{ obj.title }}
+
+  </div>
+
+    
+       <h2>Todos </h2>
+  <div class="todos-item" v-for="(obj, index) in todos" :key="obj.id">
+      <!-- <img v-if="obj.imgSrc" :src="obj.imgSrc"> -->
+  <input v-model="todos.completed" type="checkbox">
+
+        {{index}} - {{ obj.title }}
+
+  </div>
+
   <div>
      <button @click.once="onClick">
           Enviar
@@ -74,6 +95,9 @@ export default {
 
   },
   methods:{
+    click(){
+      console.log(this)
+    },
     onClick($evt){
       console.log("Click!!", $evt);
     },
@@ -90,12 +114,25 @@ export default {
       console.log('onKeyUp', $evt);
     }
   },
+  computed: {
+    fullName() {
+      return `${this.user.firstName} ${this.user.lastName}`
+    },
+    uncompletedTodos(){
+      return this.todos.filter(todos => !todos.completed);
+    },
+    completedTodos(){
+      return this.todos.filter(todos => todos.completed);
+    },
+
+  },
   data(){
      return {
        colors: ['Yellow','Red','Blue','Green'],
        contract: false,
        newletter: 'Não',
        name : 'Jasiel',
+       user : { firstName: 'Jenna', lastName:'Ortega'},
        sports: 'futebol',
        isHome: true,
        classVar: 'title',
@@ -107,7 +144,7 @@ export default {
     "userId": 1,
     "id": 1,
     "title": "delectus aut autem",
-    "completed": false,
+    "completed": true,
     "imgSrc": 'https://via.placeholder.com/150'
 
   },
