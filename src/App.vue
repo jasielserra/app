@@ -13,6 +13,15 @@
       <input v-model="name" type="text">
       <br>
         {{ name }}
+      <br><br><br>
+      <select v-model="pageCount">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+          <option value="25">25</option>
+      </select><br><br>
+      {{ pageCount }}
       <h1 :class="{ 'title': true, 'title-home': isHome }">Curso VUE 3</h1>
       <label>Sports</label><br>
       <select v-model="sports">
@@ -58,11 +67,11 @@
 
   </div>
 
-    
+
        <h2>Todos </h2>
   <div class="todos-item" v-for="(obj, index) in todos" :key="obj.id">
       <!-- <img v-if="obj.imgSrc" :src="obj.imgSrc"> -->
-  <input v-model="todos.completed" type="checkbox">
+  <input v-model="obj.completed" type="checkbox">
 
         {{index}} - {{ obj.title }}
 
@@ -112,6 +121,13 @@ export default {
     },
     onKeyUp($evt){
       console.log('onKeyUp', $evt);
+    },
+    saveUserName(){
+      console.log('Ajax');
+      console.log(this.name);
+    },
+    changePage(){
+      console.log('AJAX changePage');
     }
   },
   computed: {
@@ -126,8 +142,27 @@ export default {
     },
 
   },
+  watch: {
+    name(vl){
+      if (vl.length >= 3) {
+        this.saveUserName()
+
+      }
+    },
+    pageCount(){
+      this.changePage();
+    },
+    user: {
+      handler() {
+        console.log("User alterado");
+
+      },
+      deep: true
+    }
+  },
   data(){
      return {
+       pageCount: 5,
        colors: ['Yellow','Red','Blue','Green'],
        contract: false,
        newletter: 'Não',
