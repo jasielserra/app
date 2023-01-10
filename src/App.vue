@@ -1,7 +1,18 @@
 <template>
   <div>
 
-    <TheHeader v-if="showHeader"/>
+    <TheHeader v-if="showHeader">
+      <template v-slot:title>
+        Home
+      </template>
+
+      <template v-slot:description>
+        <p>Dados</p>
+      </template>
+
+      Content do header - menu ...
+
+    </TheHeader>
     <br><br>
     <button @click="showHeader=!showHeader">
           Ativar e Desativar Header

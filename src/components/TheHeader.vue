@@ -1,6 +1,18 @@
 <template>
   <header class="header">
-     Header for My Home Page
+
+    <h1 v-if="$slots.title" class="title">
+     <slot name="title"></slot>
+    </h1>
+
+    <div class="description">
+      <slot name="description"/>
+    </div>
+
+    <div class="content">
+      <slot/>
+    </div>
+
   </header>
 </template>
 
@@ -8,6 +20,7 @@
 export default {
   name: 'TheHeader',
   mounted() {
+    console.log(this.$slots)
     window.addEventListener('resize',this.resize)
   },
   beforeUnmount() {
