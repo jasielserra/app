@@ -1,13 +1,28 @@
 <template>
   <header class="header">
-     Minha Página
+     Header for My Home Page
   </header>
 </template>
 
 <script>
 export default {
-  name: 'The-Header',
+  name: 'TheHeader',
+  mounted() {
+    window.addEventListener('resize',this.resize)
+  },
+  beforeUnmount() {
+    console.log('beforeUnmount');
+    window.removeEventListener('resize',this.resize);
 
+  },
+  unmounted() {
+    console.log('unmounted');
+  },
+  method: {
+    resize($evt){
+      console.log($evt);
+    }
+  }
 }
 </script>
 

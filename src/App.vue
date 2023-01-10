@@ -1,8 +1,12 @@
 <template>
   <div>
-    One-way data binding <br>
-    Two-way data binding <br>
-    v-model -> formulários<br>
+
+    <TheHeader v-if="showHeader"/>
+    <br><br>
+    <button @click="showHeader=!showHeader">
+          Ativar e Desativar Header
+    </button>
+    <br><br><br>
     <button @click="click">Click-me</button>
     <p> {{  fullName }}</p>
   </div>
@@ -98,11 +102,44 @@
 
 <script>
 
+import TheHeader from "@/components/TheHeader";
 export default {
   name: 'App',
   components: {
-
+    TheHeader
   },
+//  beforeCreate() {
+//    console.log('beforeCreate');
+//    console.log('Estado:',this.name);
+//    console.log('DOM:',this.$el);
+//  },
+  // HOOKS
+//  create(){
+//    console.log('beforeCreate');
+//    console.log('Estado:',this.name);
+//    console.log('DOM:',this.$el);
+//  },
+//  beforeMount() {
+//    console.log('beforeMount');
+//    console.log('Estado:',this.name);
+//    console.log('DOM:',this.$el);
+//  },
+//  mounted() {
+//    console.log('mounted');
+//    console.log('Estado:',this.name);
+//   console.log('DOM:',this.$el);
+
+//  },
+//  beforeUnmount() {
+//    console.log('beforeUnmount');
+//    console.log('Estado:',this.name);
+//    console.log('DOM:',this.$el);
+//  },
+//  unmounted() {
+//    console.log('unmouted');
+//    console.log('Estado:', this.name);
+//    console.log('DOM:',this.$el);
+//  },
   methods:{
     click(){
       console.log(this)
@@ -162,6 +199,7 @@ export default {
   },
   data(){
      return {
+       showHeader: false,
        pageCount: 5,
        colors: ['Yellow','Red','Blue','Green'],
        contract: false,
