@@ -1,8 +1,8 @@
 <template>
   <header class="header">
 
-    <h1 v-if="$slots.title" class="title">
-     <slot name="title"></slot>
+    <h1 v-if="$slots.title" class="titled">
+     <slot name="titled"></slot>
     </h1>
 
     <div class="description">

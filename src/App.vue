@@ -21,7 +21,15 @@
     <button @click="showHeader=!showHeader">
           Ativar e Desativar Header
     </button>
-    <br><br><br>
+    <br>
+    <br>
+    <BaseCard/>
+    <br>
+    <br>
+    <div class="card">
+       Testando o escopo de uma classe de CSS
+    </div>
+    <br>
     <button @click="click">Click-me</button>
     <p> {{  fullName }}</p>
   </div>
@@ -118,9 +126,11 @@
 <script>
 
 import TheHeader from "@/components/TheHeader";
+import BaseCard from "@/components/BaseCard";
 export default {
   name: 'App',
   components: {
+    BaseCard,
     TheHeader
   },
 //  beforeCreate() {
