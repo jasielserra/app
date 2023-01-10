@@ -10,6 +10,10 @@
         <p>Dados</p>
       </template>
 
+      <template v-slot:content>
+        <p>Conteúdo dos Slots</p>
+      </template>
+
       Content do header - menu ...
 
     </TheHeader>

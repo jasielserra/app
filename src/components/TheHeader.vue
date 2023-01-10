@@ -9,8 +9,8 @@
       <slot name="description"/>
     </div>
 
-    <div class="content">
-      <slot/>
+    <div v-if="$slots.content" class="content">
+      <slot name="contents"/>
     </div>
 
   </header>
