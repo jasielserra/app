@@ -1,7 +1,7 @@
 <template>
     <div :class=baseClass>
          <p>{{ text }}</p>
-
+          <button @click="onClick()"> X </button>
      </div>
 </template>
 
@@ -26,6 +26,12 @@ export default {
         }
 
     },
+  methods: {
+      onClick(){
+        this.$emit('Close')
+        console.log("Clicado")
+      }
+  }
 
 }
 </script>
@@ -33,6 +39,8 @@ export default {
 <style scoped>
 
 .alert {
+  display: flex;
+  justify-content: space-between;
   padding: 5px;
   border-radius: 6px;
   color: gray;

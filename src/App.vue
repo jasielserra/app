@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Basealert :variant="variant" :text="text"/>
+    <Basealert v-if="showAlert" :variant="variant" :text="text" @close="onClose()"/>
     <TheHeader v-if="showHeader">
       <template v-slot:title>
         Home
@@ -168,6 +168,10 @@ export default {
 //    console.log('DOM:',this.$el);
 //  },
   methods:{
+    onClose(){
+      this.showAlert = false
+      console.log('on close');
+    },
     click(){
       console.log(this)
     },
@@ -226,6 +230,7 @@ export default {
   },
   data(){
      return {
+       showAlert:true,
        variant:'success',
        text:'Seu formulário foi enviado com sucesso!',
        showHeader: false,
