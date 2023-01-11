@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    <Basealert variant="danger"/>
     <TheHeader v-if="showHeader">
       <template v-slot:title>
         Home
@@ -127,9 +127,11 @@
 
 import TheHeader from "@/components/TheHeader";
 import BaseCard from "@/components/BaseCard";
+import Basealert from "@/components/BaseAlert";
 export default {
   name: 'App',
   components: {
+    Basealert,
     BaseCard,
     TheHeader
   },
