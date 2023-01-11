@@ -1,7 +1,6 @@
 <template>
     <div :class=baseClass>
          <p>{{ text }}</p>
-         <p>{{ test }}</p>
 
      </div>
 </template>
@@ -11,13 +10,11 @@ export default {
     props: {
       variant :{
         type: String,
-        default: ''
+        default: 'danger'
       },
-      test: {
-        type: Object,
-        default: () => {
-            return {}
-        }
+      text: {
+        type: String,
+        default: 'Sem texto'
       },
     },
     computed:{
