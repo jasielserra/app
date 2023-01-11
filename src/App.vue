@@ -1,4 +1,10 @@
 <template>
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link :to="rotaDinamica">Serviços</router-link> |
+    <router-link to="/about">About</router-link>
+  </nav>
+  <router-view/>
   <div>
     <Basealert v-if="showAlert" :variant="variant" :text="text" @close="onClose()"/>
     <TheHeader v-if="showHeader">
@@ -230,6 +236,7 @@ export default {
   },
   data(){
      return {
+       rotaDinamica: {'name': 'servicos'},
        showAlert:true,
        variant:'success',
        text:'Seu formulário foi enviado com sucesso!',
@@ -312,5 +319,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin: 60px;
+}
+nav {
+  padding: 30px;
+}
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
 }
 </style>
