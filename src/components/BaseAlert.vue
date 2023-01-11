@@ -28,7 +28,7 @@ export default {
     },
   methods: {
       onClick(){
-        this.$emit('Close')
+        this.$emit('close')
         console.log("Clicado")
       }
   }
