@@ -1,12 +1,12 @@
 <template>
     <div :class=baseClass>
-      Seu formulário foi enviado com sucesso!
-    </div>
+         <p>{{ text }}</p>
+     </div>
 </template>
 
 <script>
 export default {
-    props: ['variant'],
+    props: ['variant', 'text'],
     computed:{
         baseClass(){
           return [

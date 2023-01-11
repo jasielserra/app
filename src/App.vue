@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Basealert variant="success"/>
+    <Basealert :variant="variant" :text="text"/>
     <TheHeader v-if="showHeader">
       <template v-slot:title>
         Home
@@ -226,6 +226,8 @@ export default {
   },
   data(){
      return {
+       variant:'success',
+       text:'Seu formulário foi enviado com sucesso!',
        showHeader: false,
        pageCount: 5,
        colors: ['Yellow','Red','Blue','Green'],
