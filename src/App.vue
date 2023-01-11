@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Basealert variant="danger"/>
+    <Basealert variant="success"/>
     <TheHeader v-if="showHeader">
       <template v-slot:title>
         Home

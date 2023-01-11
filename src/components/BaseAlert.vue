@@ -1,12 +1,22 @@
 <template>
-    <div :class="[alert, {'alert-success': variant === 'success', 'alert-danger':variant === 'danger' }]">
+    <div :class=baseClass>
       Seu formulário foi enviado com sucesso!
     </div>
 </template>
 
 <script>
 export default {
-    props: ['variant']
+    props: ['variant'],
+    computed:{
+        baseClass(){
+          return [
+              'alert',
+              this.variant ? `alert-${this.variant}`:''
+          ]
+        }
+
+    },
+
 }
 </script>
 
